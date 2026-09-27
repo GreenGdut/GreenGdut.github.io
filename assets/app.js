@@ -85,6 +85,15 @@
     location: "China · UTC+8",
   };
 
+  // 把 PROFILE 同步到 HTML 里静态的标题栏 / 提示符，避免两处硬编码不一致
+  function applyProfile() {
+    const set = (sel, val) => document.querySelectorAll(sel).forEach((n) => (n.textContent = val));
+    set(".tb-user, .p-user", PROFILE.handle);
+    set(".tb-host, .p-host", PROFILE.host);
+    set(".tb-path, .p-path", "~");
+    document.title = PROFILE.handle + " :: ~/blog";
+  }
+
   const SKILLS = [
     { name: "C / C++", pct: 88 },
     { name: "Linux", pct: 90 },
@@ -546,21 +555,10 @@
     );
   }
 
-  function skillBars() {
-    return SKILLS.map((s) => {
-      const total = 22;
-      const filled = Math.round((s.pct / 100) * total);
-      const bar = '<span class="fill">' + "█".repeat(filled) + "</span>" + "░".repeat(total - filled);
-      return (
-        '<div class="skill"><span class="name">' +
-        esc(s.name) +
-        '</span><span class="bar">[' +
-        bar +
-        ']</span><span class="pct">' +
-        s.pct +
-        "%</span></div>"
-      );
-    }).join("");
+  function skillList() {
+    return SKILLS.map(
+      (s) => '<span class="skill-item"><span class="tag">' + esc(s.name) + "</span></span>"
+    ).join("");
   }
 
   function entries(list, kind) {
@@ -668,7 +666,7 @@
     desc: "技能栈",
     run() {
       raw('<span class="amber bold">── SKILLS ────────────────────────</span>');
-      raw(skillBars());
+      raw(skillList());
       blank();
       raw('<span class="faint">提示：</span>' + CHIPS(["projects", "neofetch"]));
     },
@@ -1311,6 +1309,7 @@
   }
 
   /* 旧浏览器兜底 */
+  applyProfile();
   syncCaret();
   boot();
 })();

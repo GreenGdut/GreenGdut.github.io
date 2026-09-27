@@ -557,7 +557,7 @@
 
   function skillList() {
     return SKILLS.map(
-      (s) => '<span class="skill-item"><span class="tag">' + esc(s.name) + "</span></span>"
+      (s) => '<div class="skill-item"><span class="tag">' + esc(s.name) + "</span></div>"
     ).join("");
   }
 

@@ -85,15 +85,6 @@
     location: "China · UTC+8",
   };
 
-  // 把 PROFILE 同步到 HTML 里静态的标题栏 / 提示符，避免两处硬编码不一致
-  function applyProfile() {
-    const set = (sel, val) => document.querySelectorAll(sel).forEach((n) => (n.textContent = val));
-    set(".tb-user, .p-user", PROFILE.handle);
-    set(".tb-host, .p-host", PROFILE.host);
-    set(".tb-path, .p-path", "~");
-    document.title = PROFILE.handle + " :: ~/blog";
-  }
-
   const SKILLS = [
     { name: "C / C++", pct: 88 },
     { name: "Linux", pct: 90 },
@@ -109,7 +100,7 @@
     {
       title: "ROS YOLO Smart Interception",
       tags: ["ROS", "YOLO", "C++", "Docker"],
-      desc: "基于 ROS Noetic 的双目视觉目标检测与智能拦截；Docker 化可复现开发环境。",
+      desc: "[dev]基于 ROS Noetic 的双目视觉目标检测与智能拦截；Docker 化可复现开发环境。",
     },
     {
       title: "hi3519_yolo",
@@ -1320,7 +1311,6 @@
   }
 
   /* 旧浏览器兜底 */
-  applyProfile();
   syncCaret();
   boot();
 })();

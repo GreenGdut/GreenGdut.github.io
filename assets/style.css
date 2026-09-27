@@ -220,11 +220,7 @@ body {
 .kv .v { color: var(--fg); }
 
 /* 技能条 */
-.skill { display: grid; grid-template-columns: 128px 1fr 46px; gap: 10px; align-items: center; margin: 3px 0; }
-.skill .name { color: var(--fg); }
-.skill .bar  { color: var(--fg-faint); letter-spacing: -1px; }
-.skill .bar .fill { color: var(--green); text-shadow: 0 0 6px var(--green-glow); }
-.skill .pct { color: var(--amber); text-align: right; }
+.skill-item { display: inline-block; margin: 3px 6px 3px 0; }
 
 /* 项目 / 文章列表 */
 .entry {
@@ -423,7 +419,6 @@ a:hover, .link:hover {
   }
   .titlebar-meta, .tb-badge { display: none; }
   .screen { padding: 14px 12px 6px; }
-  .skill { grid-template-columns: 96px 1fr 40px; gap: 7px; }
   .statusbar { gap: 0; }
   .sb-key { padding: 1px 5px; }
   .sb-key b { display: none; }

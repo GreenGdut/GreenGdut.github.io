@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>green_gdut :: ~/blog</title>
+<meta name="description" content="Linux / OpenHarmony / CV / Cpp —— 一个嵌入式与计算机视觉工程师的终端博客" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&gt;_</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<div class="crt" id="crt">
+  <div class="crt-flicker"></div>
+  <div class="crt-scanlines"></div>
+
+  <main class="terminal" id="terminal" role="application" aria-label="终端博客">
+    <header class="titlebar">
+      <div class="titlebar-dots">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <div class="titlebar-title">
+        <span class="tb-user">green_gdut</span><span class="tb-at">@</span><span class="tb-host">openworld-dev</span>
+        <span class="tb-sep">:</span><span class="tb-path">~/blog</span>
+        <span class="tb-badge">— tui_blog v1.0</span>
+      </div>
+      <div class="titlebar-meta">tty1</div>
+    </header>
+
+    <div class="screen" id="screen">
+      <div class="output" id="output"></div>
+
+      <form class="inputline" id="form" autocomplete="off">
+        <span class="prompt" id="prompt">
+          <span class="p-user">green_gdut</span><span class="p-at">@</span><span class="p-host">openworld-dev</span><span class="p-colon">:</span><span class="p-path">~</span><span class="p-sym">$</span>
+        </span>
+        <span class="input-wrap">
+          <input id="cmd" type="text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="输入命令" style="width:0" />
+          <span class="caret" id="caret">█</span>
+        </span>
+      </form>
+    </div>
+
+    <nav class="statusbar" aria-label="快捷键">
+      <span class="sb-mode">NORMAL</span>
+      <button class="sb-key" data-cmd="help"><b>F1</b> help</button>
+      <button class="sb-key" data-cmd="whoami"><b>F2</b> whoami</button>
+      <button class="sb-key" data-cmd="projects"><b>F3</b> projects</button>
+      <button class="sb-key" data-cmd="blog"><b>F4</b> blog</button>
+      <button class="sb-key" data-cmd="contact"><b>F5</b> contact</button>
+      <button class="sb-key" data-cmd="neofetch"><b>F6</b> neofetch</button>
+      <button class="sb-key" data-cmd="clear"><b>F7</b> clear</button>
+      <span class="sb-right" id="clock">--:--:--</span>
+    </nav>
+  </main>
+</div>
+
+<noscript>
+  <pre class="noscript">
+ 本博客是一个终端交互页面，需要启用 JavaScript 才能使用。
+ 核心信息：Linux / OpenHarmony / 计算机视觉 / C++ 工程师。
+ 直接浏览类内容：
+   - whoami      自我介绍
+   - skills      技能栈
+   - projects    项目
+   - blog        文章列表
+   - contact     联系方式
+  </pre>
+</noscript>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
